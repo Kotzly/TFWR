@@ -1,4 +1,7 @@
 from positions import all_pos
+from moving import go_to
+#from simple_moving import go_to as simple_go_to
+
 # time_passed = get_time
 time = 0
 start_time = get_time()
@@ -15,7 +18,6 @@ def plant_sunflower():
 	return True
 
 
-from moving import go_to
 # 0 unkown
 # 1 planted growing
 # 2 planted grown
@@ -68,6 +70,7 @@ def sunflower_season(xbounds=None, ybounds=None):
 					l.remove((xx, yy))
 					harvest()
 			go_to(px, py, callback)
+#			simple_go_to(px, py)
 			while not can_harvest() and get_entity_type() == Entities.Sunflower:
 				pass
 			l.remove((px, py))

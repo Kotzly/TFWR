@@ -12,3 +12,14 @@ def create_maze(n=44):
 	
 	if get_entity_type() == Entities.Treasure:
 		harvest()
+		
+if __name__ == "__main__":
+#	harvest()
+#	create_maze()
+	a = get_tick_count()
+	def f():
+		pass
+	spawn_drone(f)
+	b = get_tick_count()
+	print(a, b)
+	

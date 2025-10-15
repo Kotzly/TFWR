@@ -5,6 +5,8 @@ from wood import plant_bush, plant_tree
 from grass import plant_grass
 from simple_moving import go_to
 
+MAX_CACTUS_SIZE = 9
+
 to_plant = all_pos((0, 1), (0, 22))
 
 def plant_cactus():
@@ -35,19 +37,20 @@ def move_cacti(start, finish):
 			
 			
 
-def sort(col, y1, y2):
+def sort(col, y1, y2=None):
 		
-	ws = get_world_size()
-	go_to(0, ws - 1)
+	if not y2:
+		y2 = get_world_size()
+	go_to(col, y2 - 1)
 	total_count = 0
-	size = 9
+	size = MAX_CACTUS_SIZE
 	while size > 0:
-		while get_pos_y() > 0:
+		while get_pos_y() > y1:
 			move(South)
 			if measure() == size:
-				move_cacti((0, get_pos_y()), (0, ws - total_count - 1))
+				move_cacti((col, get_pos_y()), (0, y2 - total_count - 1))
 				total_count += 1
-		go_to(0, ws - total_count)
+		go_to(col, y2 - total_count)
 		size -= 1
 			
 	

@@ -1,5 +1,3 @@
-a = [1, 2]
-b = list(a)
-print(a)
-b.pop()
-print(a)
+from maze_dfs import solve_dir
+
+solve_dir(0, 0, False)
